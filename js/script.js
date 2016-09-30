@@ -14,8 +14,8 @@
 		container = document.getElementById('container');
 		space = document.getElementById('space');
 
-		_sol = new StellarObject('Sol');
-		_sol.init();
+//		_sol = new StellarObject('Sol');
+//		_sol.init();
 
 		setCanvas100Percent();
 	}

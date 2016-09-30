@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+    <!-- HELIOS: Our Sun -->
+	<star>
+        <name unit="String" shorthand="n">Sol</name>
+        <periapsis unit="" shorthand="p">0</periapsis>
+        <apoapsis unit="" shorthand="a">0</apoapsis>
+        <semi_major_axis unit="au" shorthand="sma">0</semi_major_axis>
+        <orbital_period unit="days" shorthand="op">0</orbital_period>
+        <orbital_eccentricity unit="" shorthand="oe">0</orbital_eccentricity>
+        <average_orbital_speed unit="km/s" shorthand="aos">0</average_orbital_speed>
+        <mean_anomaly unit="degree" shorthand="ma">0</mean_anomaly>
+        <orbital_inclination unit="degree" shorthand="oi">0</orbital_inclination>
+        <longitude_of_the_ascending_node unit="degree" shorthand="lan">0</longitude_of_the_ascending_node>
+        <argument_of_periapsis unit="degree" shorthand="ap">0</argument_of_periapsis>
+        <equatorial_radius unit="km" shorthand="er">0</equatorial_radius>
+        <satellites>
+            <!-- EARTH -->
+            <stellarobject>
+                <name unit="String" shorthand="n">Earth</name>
+                <periapsis unit="" shorthand="p">0.9832687</periapsis>
+                <apoapsis unit="" shorthand="a">1.01673</apoapsis>
+                <semi_major_axis unit="au" shorthand="sma">1.000001018</semi_major_axis>
+                <orbital_period unit="days" shorthand="op">365.256363004</orbital_period>
+                <orbital_eccentricity unit="" shorthand="oe">0.0167086</orbital_eccentricity>
+                <average_orbital_speed unit="km/s" shorthand="aos">29.78</average_orbital_speed>
+                <mean_anomaly unit="degree" shorthand="ma">358.617</mean_anomaly>
+                <orbital_inclination unit="degree" shorthand="oi">7.155</orbital_inclination>
+                <longitude_of_the_ascending_node unit="degree" shorthand="lan">−11.26064</longitude_of_the_ascending_node>
+                <argument_of_periapsis unit="degree" shorthand="ap">114.20783</argument_of_periapsis>
+                <equatorial_radius unit="km" shorthand="er">6,378.1</equatorial_radius>
+                <moons>
+                    <!-- THE MOON -->
+                    <stellarobject>
+                        <name unit="String" shorthand="n">The Moon</name>
+                        <periapsis unit="" shorthand="p">0</periapsis>
+                        <apoapsis unit="" shorthand="a">0</apoapsis>
+                        <semi_major_axis unit="au" shorthand="sma">0</semi_major_axis>
+                        <orbital_period unit="days" shorthand="op">0</orbital_period>
+                        <orbital_eccentricity unit="" shorthand="oe">0</orbital_eccentricity>
+                        <average_orbital_speed unit="km/s" shorthand="aos">0</average_orbital_speed>
+                        <mean_anomaly unit="degree" shorthand="ma">0</mean_anomaly>
+                        <orbital_inclination unit="degree" shorthand="oi">0</orbital_inclination>
+                        <longitude_of_the_ascending_node unit="degree" shorthand="lan">0</longitude_of_the_ascending_node>
+                        <argument_of_periapsis unit="degree" shorthand="ap">0</argument_of_periapsis>
+                        <equatorial_radius unit="km" shorthand="er">0</equatorial_radius>
+                    </stellarobject>                
+                </moons>
+            </stellarobject>
+        </satellites>
+	</star>
+</system>
