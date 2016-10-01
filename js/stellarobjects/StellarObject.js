@@ -27,10 +27,15 @@ var StellarObject = function(characteristics, parent) {
     
     // spacial characteristics
     this.sat    =   characteristics.sat;        // Array of satellites
-
-    console.log('StellarObject "' + this.n +  '" instantiated');
-
+    
+    console.log('StellarObject ' + this.n +  ' instantiated');
 }
+
+StellarObject.prototype.init = function () {
+    //graphical representation
+    this.graphic = new StellarGraphic(this.n);    
+}
+
 
 StellarObject.prototype.toString = function () {
     var log = "";
