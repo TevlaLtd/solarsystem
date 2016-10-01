@@ -2,6 +2,7 @@
 
 	var container;
 	var space;
+	var context;
 
 	var _data;
     
@@ -23,18 +24,26 @@
         
         //create the sun object from the xml
         sol = new StellarObject(objson.system.stellarobject, null);
-        console.log(sol.toString());
+//        console.log(sol.toString());
         
-return;
         sol.init();
         
-        setInterval(renderScene, 1000);
+        var success = initScene();
+        
+        if (success)
+            setInterval(renderScene, 1000);
          
 	}
     
     
-    function renderScene(){
-        sol.render();
+    //init the canvas for future drawing
+    function initScene(){
+        context = space.getContext('2d');
+        return (context!=null);
+    }
+    
+    function renderScene() {
+//        sol.render();
     }
 
     
