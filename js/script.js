@@ -27,7 +27,6 @@
         
         //create the sun
         var sol = new StellarObject(charact, null);
-//        sol.init();
          
 	}
 

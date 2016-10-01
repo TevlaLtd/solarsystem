@@ -32,6 +32,17 @@ var StellarObject = function(characteristics, parent) {
 
 }
 
+StellarObject.prototype.toString = function () {
+    var log = "";
+    log += "::: " + this.n + " :::\n";
+    
+    if (this.parent)
+        log += "Orbit around " + this.parent + "\n";
+    
+    return log;
+    
+}
+
 StellarObject.createCharacteristic = function(stellarNode) {
     
     var characteristic = {};
