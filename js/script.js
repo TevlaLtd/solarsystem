@@ -21,14 +21,11 @@
         //load data xml file and convert to json
         var objson = xml2json.fromFile('js/stellarobjects/data/SolarSystem.xml');
         
-        //get the characteristic of the Sun
-        var sol_so = objson.system.stellarobject;
+        //create the sun object from the xml
+        sol = new StellarObject(objson.system.stellarobject, null);
+        console.log(sol.toString());
         
-        //create a characteristic object from the xml
-        var charact = StellarObject.createCharacteristic(sol_so);
-        
-        //create the sun
-        sol = new StellarObject(charact, null);
+return;
         sol.init();
         
         setInterval(renderScene, 1000);

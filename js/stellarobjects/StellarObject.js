@@ -2,31 +2,32 @@
 // initialize with a characteristics object and a parent
 // characteristics define orbital and physical properties
 // parent refer to the object that the StellarObject is orbiting
-var StellarObject = function(characteristics, parent) {
+var StellarObject = function(stellarNode, parent) {
+    
+    var n, shorthand, value;
     
     //referential
     this.parent 	=	parent;		// Parent Object
     
-    // nominative values
-	this.n		=	characteristics.n; 		// Name
-
-    // orbital characteristics
-	this.p		=	characteristics.p;			// Periapsis
-	this.a		=	characteristics.a;			// Apoapsis
-	this.sma	=	characteristics.sma;		// Semi Major Axis
-	this.op		=	characteristics.op;			// Orbital Period
-	this.oe		=	characteristics.oe;			// Orbital Eccentricity
-	this.aos	=	characteristics.aos;		// Average Orbital Speed
-	this.ma		=	characteristics.ma;			// Mean Anomaly
-	this.oi		=	characteristics.oi;			// Orbital Inclination
-	this.lan	=	characteristics.lan;		// Longitude of the Ascending Node
-	this.ap		=	characteristics.ap;			// Argument of Periapsis
+    for (n in stellarNode) {
+        if (stellarNode[n]["@attributes"]){
+            shorthand   = stellarNode[n]["@attributes"].shorthand;
+//            console.log("shorthand: " +shorthand);
+        }
+        
+        if (stellarNode[n]["#text"]){
+            value   = stellarNode[n]["#text"];
+//            console.log("value: " +value);
+        }
+        
+        if (shorthand && value){
+            this[shorthand] = value;
+//            console.log(shorthand, value);
+        }
+        
+    }
     
-    // physical characteristics
-    this.er     =   characteristics.er;         // Equatorial radius
-    
-    // spacial characteristics
-    this.sat    =   characteristics.sat;        // Array of satellites
+    this.sat = stellarNode.satellites.stellarobject;
     
     console.log('StellarObject ' + this.n +  ' instantiated');
 }
@@ -48,6 +49,8 @@ StellarObject.prototype.toString = function () {
     if (this.parent)
         log += "Orbit around " + this.parent + "\n";
     
+    log += "- Has " + this.sat.length + " satellites.\n"
+    
     return log;
     
 }
@@ -56,25 +59,7 @@ StellarObject.createCharacteristic = function(stellarNode) {
     
     var characteristic = {};
     
-    var shorthand, value;
     
-    for (n in stellarNode) {
-        if (stellarNode[n]["@attributes"]){
-            shorthand   = stellarNode[n]["@attributes"].shorthand;
-//            console.log("shorthand: " +shorthand);
-        }
-        
-        if (stellarNode[n]["#text"]){
-            value   = stellarNode[n]["#text"];
-//            console.log("value: " +value);
-        }
-        
-        if (shorthand && value){
-            characteristic[shorthand] = value;
-//            console.log(shorthand, value);
-        }
-        
-    }
  
     return characteristic;
     
