@@ -36,6 +36,10 @@ StellarObject.prototype.init = function () {
     this.graphic = new StellarGraphic(this.n);    
 }
 
+StellarObject.prototype.render = function () {
+    this.graphic.render();
+}
+
 
 StellarObject.prototype.toString = function () {
     var log = "";

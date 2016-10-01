@@ -22,6 +22,6 @@ StellarGraphic.prototype.toString = function () {
     
 }
 
-StellarGraphic.render = function() {
-        
+StellarGraphic.prototype.render = function() {
+    console.log("render graphic for " + this.n);
 }

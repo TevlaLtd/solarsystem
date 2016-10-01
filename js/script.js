@@ -4,6 +4,8 @@
 	var space;
 
 	var _data;
+    
+    var sol;
 
 	window.onload = init;
 
@@ -26,10 +28,17 @@
         var charact = StellarObject.createCharacteristic(sol_so);
         
         //create the sun
-        var sol = new StellarObject(charact, null);
+        sol = new StellarObject(charact, null);
         sol.init();
+        
+        setInterval(renderScene, 1000);
          
 	}
+    
+    
+    function renderScene(){
+        sol.render();
+    }
 
     
     function handleJSONload(xml) {
