@@ -6,6 +6,9 @@ var StellarObject = function(stellarNode, parent) {
     
     var n, shorthand, value;
     
+    //unique ID for each stellarObject
+    this.id = "SO_" + Math.floor(Math.random()*9999999);
+    
     //referential
     this.parent 	=	parent;		// Parent Object
     
@@ -33,14 +36,14 @@ var StellarObject = function(stellarNode, parent) {
 }
 
 StellarObject.prototype.init = function () {
-    //graphical representation
-    this.graphic = new StellarGraphic(this.n);    
+    //graphical representation, pass name(n), colour(c) and equatorial radius(er)
+    this.graphic = new StellarGraphic(this.n, this.c, this.er, this.parent);
+    
+    if (this.parent==null){
+        this.graphic.x = space.width / 2 - this.er*SCALE_SOLAR_SYSTEM;
+        this.graphic.y = space.height / 2 - this.er*SCALE_SOLAR_SYSTEM;
+    }
 }
-
-StellarObject.prototype.render = function () {
-    this.graphic.render();
-}
-
 
 StellarObject.prototype.toString = function () {
     var log = "";
@@ -54,17 +57,6 @@ StellarObject.prototype.toString = function () {
     return log;
     
 }
-
-StellarObject.createCharacteristic = function(stellarNode) {
-    
-    var characteristic = {};
-    
-    
- 
-    return characteristic;
-    
-}
-
 
 
 //console.log(objson.system.star.satellites.stellarobject.name["#text"]);

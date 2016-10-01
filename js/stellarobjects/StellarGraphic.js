@@ -1,13 +1,17 @@
 // StellarGraphic class
 // will render the StellarObject that owns it
-var StellarGraphic = function(name) {
+var StellarGraphic = function(name, colour, radius) {
     this.n = name;
+    
+    this.c = colour;
+    
+    this.er = radius;
     
     this.x = 0;
     this.y = 0;
     this.z = 0;
-    
-    this.imagedata		=	null;
+
+    this.imagedata		=	drawStellarGraphic(name, this.c, this.er);
     
     console.log('StellarGraphic_' + this.n +  ' instantiated');
 
@@ -20,8 +24,4 @@ StellarGraphic.prototype.toString = function () {
     
     return log;
     
-}
-
-StellarGraphic.prototype.render = function() {
-    console.log("render graphic for " + this.n);
 }

@@ -1,10 +1,14 @@
+var SCALE_SOLAR_SYSTEM = 0.0005;
+var container;
+var space;
+var context;
+
 (function(){
 
-	var container;
-	var space;
-	var context;
-
 	var _data;
+    
+    //array that will store all the objects that needs redrawing
+    var _renders=[];
     
     var sol;
 
@@ -24,15 +28,15 @@
         
         //create the sun object from the xml
         sol = new StellarObject(objson.system.stellarobject, null);
-//        console.log(sol.toString());
-        
         sol.init();
+        
+        addToScene(sol);
         
         var success = initScene();
         
         if (success)
-            setInterval(renderScene, 1000);
-         
+            renderScene();
+//            setInterval(renderScene, 1000);
 	}
     
     
@@ -43,8 +47,19 @@
     }
     
     function renderScene() {
-//        sol.render();
+        for (o in _renders){
+            console.log(_renders[o].imagedata);
+            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
+        }
     }
+    
+    function addToScene(obj){
+        _renders[obj.id] = obj.graphic;
+    }
+    
+    function removeFromScene(obj){
+        delete _renders[obj.id];
+    }    
 
     
     function handleJSONload(xml) {
