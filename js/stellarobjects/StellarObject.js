@@ -40,8 +40,8 @@ StellarObject.prototype.init = function () {
     this.graphic = new StellarGraphic(this.n, this.c, this.er, this.parent);
     
     if (this.parent==null){
-        this.graphic.x = space.width / 2 - this.er*SCALE_SOLAR_SYSTEM;
-        this.graphic.y = space.height / 2 - this.er*SCALE_SOLAR_SYSTEM;
+        this.graphic.x = space.width / 2 - relativeDimensions(this.er);
+        this.graphic.y = space.height / 2 - relativeDimensions(this.er);
     }
 }
 

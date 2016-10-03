@@ -1,4 +1,3 @@
-var SCALE_SOLAR_SYSTEM = 0.0005;
 var container;
 var space;
 var context;
