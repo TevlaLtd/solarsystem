@@ -47,7 +47,6 @@ var context;
     
     function renderScene() {
         for (o in _renders){
-            console.log(_renders[o].imagedata);
             context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
         }
     }

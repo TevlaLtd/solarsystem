@@ -30,7 +30,7 @@
                 <orbital_inclination unit="degree" shorthand="oi">7.155</orbital_inclination>
                 <longitude_of_the_ascending_node unit="degree" shorthand="lan">−11.26064</longitude_of_the_ascending_node>
                 <argument_of_periapsis unit="degree" shorthand="ap">114.20783</argument_of_periapsis>
-                <equatorial_radius unit="km" shorthand="er">6,378.1</equatorial_radius>
+                <equatorial_radius unit="km" shorthand="er">6378.1</equatorial_radius>
                 <satellites></satellites>
             </stellarobject>            
             <!-- EARTH -->
@@ -47,7 +47,7 @@
                 <orbital_inclination unit="degree" shorthand="oi">7.155</orbital_inclination>
                 <longitude_of_the_ascending_node unit="degree" shorthand="lan">−11.26064</longitude_of_the_ascending_node>
                 <argument_of_periapsis unit="degree" shorthand="ap">114.20783</argument_of_periapsis>
-                <equatorial_radius unit="km" shorthand="er">6,378.1</equatorial_radius>
+                <equatorial_radius unit="km" shorthand="er">6378.1</equatorial_radius>
                 <satellites>
                     <!-- THE MOON -->
                     <stellarobject>
