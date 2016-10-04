@@ -9,9 +9,13 @@ function drawStellarGraphic(name, colour, radius) {
     ctx.fillStyle="rgb(" + colour + ")";
     ctx.fill();
 //    ctx.fillStyle="black";
-//    ctx.font = "48px serif";
-//    ctx.textAlign="center";
-//    ctx.fillText (name, relativeDimensions(radius), relativeDimensions(radius));    
+//    ctx.strokeStyle="white";
+    ctx.fillStyle="white";
+    ctx.strokeStyle="black";    
+    ctx.font = "40px serif";
+    ctx.textAlign="center";
+    ctx.fillText(name, relativeDimensions(radius), relativeDimensions(radius));    
+    ctx.strokeText(name, relativeDimensions(radius), relativeDimensions(radius));
     
     var imgdata = ctx.getImageData(0,0,relativeDimensions(radius)*2, relativeDimensions(radius)*2);
     return imgdata;
