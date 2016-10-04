@@ -29,12 +29,15 @@ var StellarObject = function(stellarNode, parent) {
     
     //unique ID for each stellarObject
     this.id = "SO_" + this.n + "_" + Math.floor(Math.random()*9999999); 
-    
-    console.log("ID, ", this.id);
+
+    this.sat = [];
     
     // if the stellar object has got satellites
-    if (stellarNode.satellites){
-        this.sat = stellarNode.satellites.stellarobject;
+    if (stellarNode.satellites.stellarobject){
+        // if the node is an array we instantiate it to this.sat else we have a unique object that we add to the sat array
+        if (stellarNode.satellites.stellarobject.constructor === Array)
+            this.sat = stellarNode.satellites.stellarobject;
+        else this.sat.push(stellarNode.satellites.stellarobject);
     }
     
     console.log('StellarObject ' + this.n +  ' instantiated');
@@ -62,8 +65,3 @@ StellarObject.prototype.toString = function () {
     return log;
     
 }
-
-
-//console.log(objson.system.star.satellites.stellarobject.name["#text"]);
-//console.log(objson.system.star.satellites.stellarobject.name["@attributes"].shorthand);
-//console.log(objson.system.star.satellites.stellarobject.name["@attributes"].unit);
