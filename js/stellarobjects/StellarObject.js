@@ -6,9 +6,6 @@ var StellarObject = function(stellarNode, parent) {
     
     var n, shorthand, value;
     
-    //unique ID for each stellarObject
-    this.id = "SO_" + Math.floor(Math.random()*9999999);
-    
     //referential
     this.parent 	=	parent;		// Parent Object
     
@@ -30,7 +27,15 @@ var StellarObject = function(stellarNode, parent) {
         
     }
     
-    this.sat = stellarNode.satellites.stellarobject;
+    //unique ID for each stellarObject
+    this.id = "SO_" + this.n + "_" + Math.floor(Math.random()*9999999); 
+    
+    console.log("ID, ", this.id);
+    
+    // if the stellar object has got satellites
+    if (stellarNode.satellites){
+        this.sat = stellarNode.satellites.stellarobject;
+    }
     
     console.log('StellarObject ' + this.n +  ' instantiated');
 }

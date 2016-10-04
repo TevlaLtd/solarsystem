@@ -26,15 +26,15 @@ var context;
         var objson = xml2json.fromFile('js/stellarobjects/data/SolarSystem.xml');
         
         //create the sun object from the xml
-        sol = new StellarObject(objson.system.stellarobject, null);
-        sol.init();
+//        sol = new StellarObject(objson.system.stellarobject, null);
+//        sol.init();
         
-        addToScene(sol);
+        addToScene(objson.system.stellarobject);
         
         var success = initScene();
         
-        if (success)
-            renderScene();
+//        if (success)
+//            renderScene();
 //            setInterval(renderScene, 1000);
 	}
     
@@ -46,26 +46,31 @@ var context;
     }
     
     function renderScene() {
+        var o;
         for (o in _renders){
-            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
+            console.log(_renders[o])
+//            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
         }
     }
     
-    function addToScene(obj){
-        _renders[obj.id] = obj.graphic;
+    function addToScene(obj) {
+        var sat;
+        //we need to test that the object passed is a stellar object
+        var so = new StellarObject(obj, null);
+        so.init();
+
+        _renders[so.id] = so.graphic;
+        //once the object has been added to the scene, we add its satellites
+        console.log()
+        for (sat in so.sat) {
+//            console.log(so.sat[sat]);
+            addToScene(so.sat);
+        }
     }
     
     function removeFromScene(obj){
         delete _renders[obj.id];
-    }    
-
-    
-    function handleJSONload(xml) {
-        console.log("solar system loaded");
-        var xmlDoc = xml.responseXML;
-        console.log(xmlDoc)
-        
-    }    
+    }
     
 
 	function setCanvas100Percent(){
