@@ -29,11 +29,11 @@ var context;
         addToScene(objson.system.stellarobject);
         
         var success = initScene();
-        
-        if (success)
-            renderScene();
-//            setInterval(renderScene, 1000);
-        
+
+        if (success){
+            updateScene();
+            setInterval(updateScene, 10);
+        }
 	}
     
     
@@ -43,12 +43,19 @@ var context;
         return (context!=null);
     }
     
+    function updateScene() {
+//        context.clearRect(0, 0, space.width, space.height);
+        for (o in _renders) {
+            _renders[o].increaseRevolution();
+        }        
+        renderScene();
+    }
+    
     function renderScene() {
         var o;
         // loop through all the StellarGraphic objects and render them
         for (o in _renders) {
-//            context.putImageData(_renders[o].render());
-            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
+            context.putImageData(_renders[o].graphic.imagedata, _renders[o].x, _renders[o].y);
         }
     }
     
@@ -61,10 +68,8 @@ var context;
         //we need to test that the object passed is a stellar object
         var so = new StellarObject(obj, parent);
         so.init();
-
-        console.log(so.toString())
         
-        _renders[so.id] = so.graphic;
+        _renders[so.id] = so;
         //once the object has been added to the scene, we add its satellites
         for (var sat in so.sat) {
             addToScene(so.sat[sat], so);

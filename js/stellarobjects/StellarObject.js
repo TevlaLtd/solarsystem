@@ -11,6 +11,10 @@ var StellarObject = function(stellarNode, parent) {
     
     this.startingAngle = 0;
     
+    this.x = 0;
+    this.y = 0;
+    this.z = 0;   
+    
     for (n in stellarNode) {
         if (stellarNode[n]["@attributes"]){
             shorthand   = stellarNode[n]["@attributes"].shorthand;
@@ -34,6 +38,9 @@ var StellarObject = function(stellarNode, parent) {
 
     this.sat = [];
     
+    
+
+    
     // if the stellar object has got satellites
     if (stellarNode.satellites.stellarobject){
         // if the node is an array we instantiate it to this.sat else we have a unique object that we add to the sat array
@@ -50,14 +57,23 @@ StellarObject.prototype.init = function () {
     this.graphic = new StellarGraphic(this.n, this.c, this.er, this.parent);
     
     if (this.parent==null) {
-        this.graphic.x = space.width / 2 - relativeDimensions(this.er);
-        this.graphic.y = space.height / 2 - relativeDimensions(this.er);
-    } else {
-//        this.graphic.x = this.parent.graphic.x + this.parent.graphic.width - relativeDimensions(this.er);
-//        this.graphic.y = this.parent.graphic.y + this.parent.graphic.height - relativeDimensions(this.er);        
-        this.graphic.x = (this.parent.graphic.x + this.parent.graphic.width/2) - relativeDimensions(this.er) + Math.cos(this.startingAngle)*this.parent.graphic.width;
-        this.graphic.y = (this.parent.graphic.y + this.parent.graphic.height/2) - relativeDimensions(this.er) + Math.sin(this.startingAngle)*this.parent.graphic.height;
-    }
+        this.x = space.width / 2 - relativeDimensions(this.er);
+        this.y = space.height / 2 - relativeDimensions(this.er);
+    } else {        
+        this.x = (this.parent.x + this.parent.graphic.width/2) - relativeDimensions(this.er) + Math.cos(this.startingAngle)*relativeDistance(this.sma)*2;
+        this.y = (this.parent.y + this.parent.graphic.height/2) - relativeDimensions(this.er) + Math.sin(this.startingAngle)*relativeDistance(this.sma)*2;    
+    }      
+    
+
+}
+
+StellarObject.prototype.increaseRevolution = function () {
+    if (this.parent==null) return;
+    
+    this.startingAngle+=0.01;
+
+    this.x = (this.parent.x + this.parent.graphic.width/2) - relativeDimensions(this.er) + Math.cos(this.startingAngle)*relativeDistance(this.sma)*2;
+    this.y = (this.parent.y + this.parent.graphic.height/2) - relativeDimensions(this.er) + Math.sin(this.startingAngle)*relativeDistance(this.sma)*2;    
 }
 
 StellarObject.prototype.toString = function () {

@@ -6,10 +6,6 @@ var StellarGraphic = function(name, colour, radius) {
     this.c = colour;
     
     this.er = radius;
-    
-    this.x = 0;
-    this.y = 0;
-    this.z = 0;
 
     this.drawStellarGraphic(name, this.c, this.er);
     
@@ -17,11 +13,6 @@ var StellarGraphic = function(name, colour, radius) {
     
 //    console.log('StellarGraphic_' + this.n +  ' instantiated');
 
-}
-
-
-StellarGraphic.prototype.render = function () {
-//    this.imagedata = 
 }
 
 StellarGraphic.prototype.drawStellarGraphic = function (name, colour, radius) {
@@ -45,12 +36,3 @@ StellarGraphic.prototype.drawStellarGraphic = function (name, colour, radius) {
     
     this.imagedata = ctx.getImageData(0,0,relativeDimensions(radius)*2, relativeDimensions(radius)*2);
 }    
-    
-StellarGraphic.prototype.toString = function () {
-    var log = "";
-    log += "::: StellarGraphic_" + this.n + " :::\n";
-    log += "(" + this.x + "),(" + this.y + "),(" + this.z + ") :::\n";
-    
-    return log;
-    
-}
