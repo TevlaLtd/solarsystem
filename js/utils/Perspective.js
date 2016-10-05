@@ -1,3 +1,4 @@
+
 var REAL        = "real";
 var RELATIVE    = "relative";
 var FALSESCALE    = "falseScale";

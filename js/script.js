@@ -1,3 +1,6 @@
+//constant that define time, we can change it if we want to slow down or speed up
+var DAY = 0.001
+
 var container;
 var space;
 var context;
