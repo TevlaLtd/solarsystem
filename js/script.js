@@ -45,7 +45,9 @@ var context;
     
     function renderScene() {
         var o;
+        // loop through all the StellarGraphic objects and render them
         for (o in _renders) {
+//            context.putImageData(_renders[o].render());
             context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
         }
     }
