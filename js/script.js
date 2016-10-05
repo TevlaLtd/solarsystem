@@ -5,8 +5,14 @@ var container;
 var space;
 var context;
 
+var currentDay;
+
 (function(){
 
+    
+    
+    currentDay = new Date().getDOY();
+    
 	var _data;
     
     //array that will store all the objects that needs redrawing
@@ -34,7 +40,7 @@ var context;
         var success = initScene();
 
         if (success){
-            updateScene();
+//            updateScene();
             setInterval(updateScene, 10);
         }
 	}

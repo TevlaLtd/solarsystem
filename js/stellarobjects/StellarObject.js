@@ -7,11 +7,7 @@ var StellarObject = function(stellarNode, parent) {
     var n, shorthand, value;
     
     //referential
-    this.parent 	=	parent;		// Parent Object of StellarObject type
-    
-    //TODO webservice to get current position of planet
-//    this.startingAngle = Math.random()*360;
-    this.startingAngle = 0;
+    this.parent 	=	parent;		// Parent Object of StellarObject type    
     
     this.x = 0;
     this.y = 0;
@@ -40,12 +36,16 @@ var StellarObject = function(stellarNode, parent) {
 
     this.sat = [];
     
-//    this.speed = (2*Math.PI*this.er / this.op)/10000;
-    this.speed = (360 / this.op)*DAY;
-    
-    console.log(this.n, this.speed);
-    
-    
+    if (this.op!=0){
+        this.startingAngle = currentDay*360/this.op;
+
+//        console.log("name: ", this.n);
+//        console.log("this.op: ", this.op);
+//        console.log("this.startingAngle: ", this.startingAngle);
+        
+    //  speed is calculated as a ratio of the number of degree needed to make a full orbit and the orbital period of the object
+        this.speed = (360 / this.op)*DAY;      
+    }    
     
 
     
