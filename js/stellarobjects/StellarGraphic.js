@@ -13,7 +13,9 @@ var StellarGraphic = function(name, colour, radius) {
 
     this.imagedata		=	drawStellarGraphic(name, this.c, this.er);
     
-    console.log('StellarGraphic_' + this.n +  ' instantiated');
+    this.width = this.height = relativeDimensions(this.er)*2;
+    
+//    console.log('StellarGraphic_' + this.n +  ' instantiated');
 
 }
 

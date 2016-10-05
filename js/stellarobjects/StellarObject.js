@@ -7,7 +7,9 @@ var StellarObject = function(stellarNode, parent) {
     var n, shorthand, value;
     
     //referential
-    this.parent 	=	parent;		// Parent Object
+    this.parent 	=	parent;		// Parent Object of StellarObject type
+    
+    this.startingAngle = 0;
     
     for (n in stellarNode) {
         if (stellarNode[n]["@attributes"]){
@@ -47,9 +49,14 @@ StellarObject.prototype.init = function () {
     //graphical representation, pass name(n), colour(c) and equatorial radius(er)
     this.graphic = new StellarGraphic(this.n, this.c, this.er, this.parent);
     
-    if (this.parent==null){
+    if (this.parent==null) {
         this.graphic.x = space.width / 2 - relativeDimensions(this.er);
         this.graphic.y = space.height / 2 - relativeDimensions(this.er);
+    } else {
+//        this.graphic.x = this.parent.graphic.x + this.parent.graphic.width - relativeDimensions(this.er);
+//        this.graphic.y = this.parent.graphic.y + this.parent.graphic.height - relativeDimensions(this.er);        
+        this.graphic.x = (this.parent.graphic.x + this.parent.graphic.width/2) - relativeDimensions(this.er) + Math.cos(this.startingAngle)*this.parent.graphic.width;
+        this.graphic.y = (this.parent.graphic.y + this.parent.graphic.height/2) - relativeDimensions(this.er) + Math.sin(this.startingAngle)*this.parent.graphic.height;
     }
 }
 
@@ -58,9 +65,10 @@ StellarObject.prototype.toString = function () {
     log += "::: " + this.n + " :::\n";
     
     if (this.parent)
-        log += "Orbit around " + this.parent + "\n";
+        log += "Orbit around " + this.parent.n + "\n";
     
-    log += "- Has " + this.sat.length + " satellites.\n"
+    if (this.sat.length)
+        log += "- Has " + this.sat.length + " satellites.\n"
     
     return log;
     

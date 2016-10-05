@@ -33,6 +33,7 @@ var context;
         if (success)
             renderScene();
 //            setInterval(renderScene, 1000);
+        
 	}
     
     
@@ -44,25 +45,29 @@ var context;
     
     function renderScene() {
         var o;
-        var index=0;
-        for (o in _renders){
-            console.log(_renders[o])
-//            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
-            context.putImageData(_renders[o].imagedata, index, index);
-            index+=200;
+        for (o in _renders) {
+            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
         }
     }
     
-    function addToScene(obj) {
+    function addToScene(obj, parent) {
+        
+        if (parent === undefined){
+            parent = null;
+        }
+        
         //we need to test that the object passed is a stellar object
-        var so = new StellarObject(obj, null);
+        var so = new StellarObject(obj, parent);
         so.init();
 
+        console.log(so.toString())
+        
         _renders[so.id] = so.graphic;
         //once the object has been added to the scene, we add its satellites
         for (var sat in so.sat) {
-            addToScene(so.sat[sat]);
+            addToScene(so.sat[sat], so);
         }
+        
     }
     
     function removeFromScene(obj){
