@@ -44,9 +44,12 @@ var context;
     
     function renderScene() {
         var o;
+        var index=0;
         for (o in _renders){
             console.log(_renders[o])
-            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
+//            context.putImageData(_renders[o].imagedata, _renders[o].x, _renders[o].y);
+            context.putImageData(_renders[o].imagedata, index, index);
+            index+=200;
         }
     }
     
