@@ -37,7 +37,8 @@ var StellarObject = function(stellarNode, parent) {
     this.sat = [];
     
     if (this.op!=0){
-        this.startingAngle = currentDay*360/this.op;
+        this.startingAngle = (currentDay*360/this.op)*Math.PI/180;
+//        this.startingAngle = 0*Math.PI/180;
 
 //        console.log("name: ", this.n);
 //        console.log("this.op: ", this.op);

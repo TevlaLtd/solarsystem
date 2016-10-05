@@ -40,7 +40,7 @@ var currentDay;
         var success = initScene();
 
         if (success){
-//            updateScene();
+            updateScene();
             setInterval(updateScene, 10);
         }
 	}
