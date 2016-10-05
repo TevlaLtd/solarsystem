@@ -44,7 +44,7 @@ var context;
     }
     
     function updateScene() {
-//        context.clearRect(0, 0, space.width, space.height);
+        context.clearRect(0, 0, space.width, space.height);
         for (o in _renders) {
             _renders[o].increaseRevolution();
         }        

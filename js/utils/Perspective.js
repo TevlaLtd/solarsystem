@@ -24,7 +24,7 @@ function relativeSize(value){
 }
 
 function falseScaleSize(value){
-    var FALSE_SCALE = [1, 3, 6,12,25,50,100];
+    var FALSE_SCALE = [1, 3, 5,10,20,40,60];
     
     //earth is set to 30 pixels, everything else is a ratio based on the equatorial radius
     

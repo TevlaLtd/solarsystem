@@ -27,12 +27,12 @@ StellarGraphic.prototype.drawStellarGraphic = function (name, colour, radius) {
     ctx.fill();
 //    ctx.fillStyle="black";
 //    ctx.strokeStyle="white";
-    ctx.fillStyle="white";
-    ctx.strokeStyle="black";    
-    ctx.font = "40px serif";
-    ctx.textAlign="center";
-    ctx.fillText(name, relativeDimensions(radius), relativeDimensions(radius));    
-    ctx.strokeText(name, relativeDimensions(radius), relativeDimensions(radius));
+//    ctx.fillStyle="white";
+//    ctx.strokeStyle="black";    
+//    ctx.font = "40px serif";
+//    ctx.textAlign="center";
+//    ctx.fillText(name, relativeDimensions(radius), relativeDimensions(radius));    
+//    ctx.strokeText(name, relativeDimensions(radius), relativeDimensions(radius));
     
     this.imagedata = ctx.getImageData(0,0,relativeDimensions(radius)*2, relativeDimensions(radius)*2);
 }    

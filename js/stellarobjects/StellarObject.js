@@ -9,7 +9,8 @@ var StellarObject = function(stellarNode, parent) {
     //referential
     this.parent 	=	parent;		// Parent Object of StellarObject type
     
-    this.startingAngle = 0;
+    //TODO webservice to get current position of planet
+    this.startingAngle = Math.random()*360;
     
     this.x = 0;
     this.y = 0;
@@ -70,7 +71,7 @@ StellarObject.prototype.init = function () {
 StellarObject.prototype.increaseRevolution = function () {
     if (this.parent==null) return;
     
-    this.startingAngle+=0.01;
+    this.startingAngle+=this.aos/10000;
 
     this.x = (this.parent.x + this.parent.graphic.width/2) - relativeDimensions(this.er) + Math.cos(this.startingAngle)*relativeDistance(this.sma)*2;
     this.y = (this.parent.y + this.parent.graphic.height/2) - relativeDimensions(this.er) + Math.sin(this.startingAngle)*relativeDistance(this.sma)*2;    
